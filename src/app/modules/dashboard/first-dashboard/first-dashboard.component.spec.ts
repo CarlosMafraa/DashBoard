@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VerticalBarComponent } from './vertical-bar.component';
+import { FirstDashboardComponent } from './first-dashboard.component';
 
-describe('VerticalBarComponent', () => {
-  let component: VerticalBarComponent;
-  let fixture: ComponentFixture<VerticalBarComponent>;
+describe('FirstDashboardComponent', () => {
+  let component: FirstDashboardComponent;
+  let fixture: ComponentFixture<FirstDashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VerticalBarComponent]
+      imports: [FirstDashboardComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(VerticalBarComponent);
+    fixture = TestBed.createComponent(FirstDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

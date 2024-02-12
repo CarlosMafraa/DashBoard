@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <select class="form-select" aria-label="Ano" [(ngModel)]="selectedYear" (change)="onYearChange($event)">
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+    <select class="form-select" aria-label="Ano" [(ngModel)]="selectedCompany" (change)="onCompanyChange($event)">
+<!--      <option *ngFor="let value of empresas.length; index as i" [value]=this.empresas[i]>{{this.empresas[i]}}</option>-->
+      <option *ngFor="let value of empresas; index as i" [value]="value">{{value}}</option>
+
+    </select>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" >
+      <app-first-combined [dados]="dadosBarLine"  [selected] = "selectedYear" [categoria]="meses" [font] ="fonte" ></app-first-combined>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" >
+      <app-first-line [dados]="dadosLine"  [selected] = "selectedCompany" [categoria]="meses" [font] ="fonte" ></app-first-line>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" >
+    </div>
+  </div>
+</div>

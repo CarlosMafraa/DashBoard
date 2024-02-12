@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HorizontalBarComponent } from './horizontal-bar.component';
+import { FirstCombinedComponent } from './first-combined.component';
 
-describe('HorizontalBarComponent', () => {
-  let component: HorizontalBarComponent;
-  let fixture: ComponentFixture<HorizontalBarComponent>;
+describe('FirstCombinedComponent', () => {
+  let component: FirstCombinedComponent;
+  let fixture: ComponentFixture<FirstCombinedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HorizontalBarComponent]
+      imports: [FirstCombinedComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HorizontalBarComponent);
+    fixture = TestBed.createComponent(FirstCombinedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

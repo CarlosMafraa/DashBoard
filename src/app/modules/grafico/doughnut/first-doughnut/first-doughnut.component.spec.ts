@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrimaryCombinedComponent } from './primary-combined.component';
+import { FirstDoughnutComponent } from './first-doughnut.component';
 
-describe('PrimaryCombinedComponent', () => {
-  let component: PrimaryCombinedComponent;
-  let fixture: ComponentFixture<PrimaryCombinedComponent>;
+describe('FirstDoughnutComponent', () => {
+  let component: FirstDoughnutComponent;
+  let fixture: ComponentFixture<FirstDoughnutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrimaryCombinedComponent]
+      imports: [FirstDoughnutComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PrimaryCombinedComponent);
+    fixture = TestBed.createComponent(FirstDoughnutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

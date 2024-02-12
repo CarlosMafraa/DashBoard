@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrimaryLineComponent } from './primary-line.component';
+import { FirstLineComponent } from './first-line.component';
 
-describe('PrimaryLineComponent', () => {
-  let component: PrimaryLineComponent;
-  let fixture: ComponentFixture<PrimaryLineComponent>;
+describe('FirstLineComponent', () => {
+  let component: FirstLineComponent;
+  let fixture: ComponentFixture<FirstLineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrimaryLineComponent]
+      imports: [FirstLineComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PrimaryLineComponent);
+    fixture = TestBed.createComponent(FirstLineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

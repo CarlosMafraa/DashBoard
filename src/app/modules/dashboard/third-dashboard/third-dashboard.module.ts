@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import {ThirdDashboardComponent} from "./third-dashboard.component";
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ThirdDashboardComponent
+  ],
   imports: [
     CommonModule
   ]
