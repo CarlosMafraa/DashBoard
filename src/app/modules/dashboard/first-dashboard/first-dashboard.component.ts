@@ -10,9 +10,17 @@ export class FirstDashboardComponent {
   fonte: string = "Arial";
   meses: any = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
   empresas: any = ["SEDUC","Projex Consulting","DENSO","COMETAIS","Shopping Ponta Negra","Shopping Grande Circular"];
+  categoriaFirstBarH: string[] = ["Operacional", "Compras", "Estratégico", "Administrativo","Almoxarifado"];
+  categoriaSecondBarH: string[] = ["Emergência", "Alta", "Normal", "Baixa"];
+
   years: string[] = [];
   selectedYear!: string;
   selectedCompany!: string;
+  selectedMonth!: string;
+  titleFirstBarH: string = "Despesas por departamento";
+  titleSecondBarH : string = "Criticidades de Compras";
+  titleFirstDoughnut: string = "Lucro Total";
+  titleSecondDoughnut : string = "Gasto Total";
 
   dadosBarLine: any = {
     2024:{
@@ -46,6 +54,41 @@ export class FirstDashboardComponent {
       2: [11, 64, 24, 35, 27, 45, 34, 44, 54, 64, 74, 84]}
   };
 
+  dadosBarHOne: any = {
+    "Janeiro": {data: [65, 59, 80, 81, 55]},
+    "Fevereiro": {data: [75, 69, 90, 91 , 50]},
+    "Março": {data: [85, 79, 100, 101 ,60]}
+  };
+
+  dadosBarHTwo: any = {
+    "Janeiro": { data: [65, 59, 80, 81]},
+    "Fevereiro":{data: [75, 69, 90, 91]},
+    "Março": {data: [85, 79, 100, 101]}};
+
+  dadosBarVOne: any = [{name: "SEDUC", y: 10000 , drilldown:"SEDUC"}, {name: "Projex Consulting", y: 15986,  drilldown:"Projex Consulting"}, {name:"DENSO", y: 55976 , drilldown: "DENSO"}, {name: "COMETAIS", y: 198000,  drilldown: "COMETAIS"}, {name: "Shopping Ponta Negra", y: 98765 ,  drilldown: "Shopping Ponta Negra"},{name: "Shopping Grande Circular", y: 98655,  drilldown: "Shopping Grande Circular"}];
+
+
+  firstName: string = "Receita Total";
+  secondName: string = "Lucro Líquido";
+  thirdName: string = "Lucro Bruto";
+  fourthName: string = "Total de Despesas";
+  fifthName: string = "Em Compras";
+  sixthName: string = "Compras";
+  firstValor: number = 57514.15;
+  secondValor: number = 47247.97;
+  thirdValor: number = 52847.99;
+  fourthValor: number = 11145.00;
+  fifthValor: number = 21324.45;
+  sixthValor: number = 152;
+  firstIcon: string = '';
+  secondIcon: string = '';
+  thirdIcon: string = '';
+  fourthIcon: string = '';
+  fifthIcon: string = '';
+  sixthIcon: string = '';
+
+  dadosDoughnutOne: any = [{name: "SEDUC", y: 10000}, {name: "Projex Consulting", y: 15986}, {name:"DENSO", y: 55976}, {name: "COMETAIS", y: 198000}, {name: "Shopping Ponta Negra", y: 98765},{name: "Shopping Grande Circular", y: 98655}];
+  dadosDoughnutTwo: any = [{name: "SEDUC", y: 1000}, {name: "Projex Consulting", y: 11986}, {name:"DENSO", y: 15976}, {name: "COMETAIS", y: 16700}, {name: "Shopping Ponta Negra", y: 23765},{name: "Shopping Grande Circular", y: 60655}];
 
 
   constructor() {
@@ -53,19 +96,20 @@ export class FirstDashboardComponent {
     this.years = [currentYear, currentYear - 1, currentYear - 2].map(String);
     this.selectedYear = this.years[0];
     this.selectedCompany = this.empresas[0];
-
+    this.selectedMonth = this.meses[0];
   }
 
-  onYearChange(event: any) {
-    this.selectedYear = event.target.value;
+  onYearChange(value: any) {
+    this.selectedYear = value;
   }
 
-  onCompanyChange(event: any) {
-    this.selectedCompany = event.target.value;
-    console.log(this.selectedCompany)
-
-
+  onCompanyChange(value: any) {
+    this.selectedCompany = value;
+    console.log(value)
   }
 
-  protected readonly of = of;
+  onMonthChange(value: any) {
+    this.selectedMonth = value;
+  }
+
 }

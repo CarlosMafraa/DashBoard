@@ -1,9 +1,9 @@
 <div class="text-center">
-  <div class="button">
-    <button class="btn"></button>
+  <div class="text-end text-white">
+    <p>Icon</p>
   </div>
   <div class="value">
-    <span [ngClass]="colorValue(this.name)">{{valor | real}}</span>
+    <h4 [ngClass]="colorValue(this.name)">{{name === 'Compras' ? valor : (valor | real) }}</h4>
   </div>
   <div class="bg">
     <small>{{name}}</small>

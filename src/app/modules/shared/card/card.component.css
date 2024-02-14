@@ -1,0 +1,20 @@
+.bg{
+  background: #19144D;
+  border-radius: 1rem;
+  color: #A5BCE8;
+  padding: 0.1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.receita {
+  color: #7693CB;
+}
+
+.lucro {
+  color: #A5E8BC;
+}
+
+.despesas {
+  color: #E8C9A5;
+}

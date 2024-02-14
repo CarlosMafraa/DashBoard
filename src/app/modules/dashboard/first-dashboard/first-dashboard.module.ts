@@ -7,12 +7,22 @@ import {FormsModule} from "@angular/forms";
 import {FirstLineComponent} from "../../grafico/line/first-line/first-line.component";
 import {CardComponent} from "../../shared/card/card.component";
 import {RealPipe} from "../../shared/pipe/real";
+import {
+  FirstHorizontalBarComponent
+} from "../../grafico/bar/horizontal-bar/first-horizontal-bar/first-horizontal-bar.component";
+import {FirstDoughnutComponent} from "../../grafico/doughnut/first-doughnut/first-doughnut.component";
+import {
+  FirstVerticalBarComponent
+} from "../../grafico/bar/vertical-bar/first-vertical-bar/first-vertical-bar.component";
 
 @NgModule({
   declarations: [
     FirstDashboardComponent,
     FirstCombinedComponent,
     FirstLineComponent,
+    FirstHorizontalBarComponent,
+    FirstDoughnutComponent,
+    FirstVerticalBarComponent,
     CardComponent
   ],
   exports: [

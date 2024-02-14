@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import Highcharts from 'highcharts';
 
 @Component({
@@ -17,6 +17,8 @@ export class FirstLineComponent implements OnChanges {
   Highcharts: typeof Highcharts = Highcharts;
 
   ngOnChanges() {
+    console.log(this.selected)
+    console.log(this.dados[this.selected][0])
     this.configGraphics()
   }
 

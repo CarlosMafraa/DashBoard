@@ -1,3 +1,20 @@
 .background {
   background: linear-gradient(90deg, #070331 0%, #14354D 52.78%, #19144D 100%);
 }
+
+button{
+  border: #e11d1d;
+}
+
+
+.dropdown-item{
+  color:  #14354DFF;
+}
+
+.dropdown-toggle {
+  border-color: white;
+}
+
+
+
+

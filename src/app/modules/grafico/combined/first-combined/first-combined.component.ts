@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -17,9 +17,9 @@ export class FirstCombinedComponent implements OnChanges{
   chartData:any;
 
   ngOnChanges() {
+    console.log(this.selected)
     this.configGraphics();
   }
-
 
   configGraphics(){
     this.chartData = {
@@ -48,7 +48,6 @@ export class FirstCombinedComponent implements OnChanges{
           style: {
             color: 'white',
             fontSize: '0.5rem'
-
           }
         },
       }],
@@ -107,5 +106,4 @@ export class FirstCombinedComponent implements OnChanges{
       }]
     };
   }
-
 }

@@ -1,14 +1,51 @@
-<div>
-  <div>
-    <select class="form-select" aria-label="Ano" [(ngModel)]="selectedYear" (change)="onYearChange($event)">
-      <option *ngFor="let year of years" [value]="year">{{year}}</option>
-    </select>
-    <select class="form-select" aria-label="Ano" [(ngModel)]="selectedCompany" (change)="onCompanyChange($event)">
-<!--      <option *ngFor="let value of empresas.length; index as i" [value]=this.empresas[i]>{{this.empresas[i]}}</option>-->
-      <option *ngFor="let value of empresas; index as i" [value]="value">{{value}}</option>
-
-    </select>
+<div class="container-fluid">
+  <div class="row align-content-around py-3">
+    <div class="col-5 text-start text-white">
+      <h3>Bem Vindo</h3>
+    </div>
+    <div class="col-7 text-start text-white">
+      <h3>DashBoard Finannceiro</h3></div>
   </div>
+
+  <div class="row pb-1">
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{selectedYear}}
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let year of years">
+            <a class="dropdown-item" href="#" (click)="onYearChange(year)">{{year}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{selectedCompany}}
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let value of empresas;">
+            <a class="dropdown-item" href="#" (click)="onCompanyChange(value)">{{value}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{selectedMonth}}
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let value of meses;">
+            <a class="dropdown-item" href="#" (click)="onMonthChange(value)">{{value}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 
 
   <div class="row">
@@ -18,25 +55,48 @@
     <div class="col-12 col-md-6 col-lg-4" >
       <app-first-line [dados]="dadosLine"  [selected] = "selectedCompany" [categoria]="meses" [font] ="fonte" ></app-first-line>
     </div>
-    <div class="col-12 col-md-6 col-lg-4" >
+    <div class="col-12 col-md-12 col-lg-4" >
+      <app-first-vertical-bar [dados]="dadosBarVOne" [font] ="fonte" ></app-first-vertical-bar>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row align-items-center">
     <div class="col-12 col-md-6 col-lg-4" >
+      <app-first-horizontal-bar [dados]="dadosBarHOne"  [selected] = "selectedMonth" [categoria]="categoriaFirstBarH" [font] ="fonte" [title]="titleFirstBarH"></app-first-horizontal-bar>
     </div>
-    <div class="col-12 col-md-6 col-lg-4" >
-    </div>
-    <div class="col-12 col-md-6 col-lg-4" >
+    <div class="col-12 col-md-6 col-lg-8" >
+      <div class="row justify-content-around align-items-center">
+        <div class="col-6 col-md-6 col-lg-2">
+          <app-card [name]="firstName" [valor]="firstValor" [icon]="firstIcon"></app-card>
+        </div>
+        <div class="col-6 col-md-6 col-lg-2">
+          <app-card [name]="secondName" [valor]="secondValor" [icon]="secondIcon"></app-card>
+        </div>
+        <div class="col-6 col-md-6 col-lg-2">
+          <app-card [name]="thirdName" [valor]="thirdValor" [icon]="thirdIcon"></app-card>
+        </div>
+        <div class="col-6 col-md-6 col-lg-2">
+          <app-card [name]="fourthName" [valor]="fourthValor" [icon]="fourthIcon"></app-card>
+        </div>
+        <div class="col-6 col-md-6 col-lg-2">
+          <app-card [name]="fifthName" [valor]="fifthValor" [icon]="fifthIcon"></app-card>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4" >
+  <div class="row align-items-center">
+    <div class="col-6 col-md-6 col-lg-1" >
+      <app-card [name]="sixthName" [valor]="sixthValor" [icon]="sixthIcon"></app-card>
+    </div>
+    <div class="col-6 col-md-6 col-lg-3" >
+      <app-first-horizontal-bar [dados]="dadosBarHTwo" [selected] = "selectedMonth" [categoria]="categoriaSecondBarH" [font] ="fonte" [title]="titleSecondBarH"></app-first-horizontal-bar>
     </div>
     <div class="col-12 col-md-6 col-lg-4" >
+      <app-first-doughnut [dados]="dadosDoughnutOne" [font] ="fonte" [title]="titleFirstDoughnut"></app-first-doughnut>
     </div>
     <div class="col-12 col-md-6 col-lg-4" >
+      <app-first-doughnut [dados]="dadosDoughnutTwo" [font] ="fonte" [title]="titleSecondDoughnut"></app-first-doughnut>
     </div>
   </div>
 </div>
