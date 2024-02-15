@@ -1,11 +1,12 @@
-<div class="text-center">
-  <div class="text-end text-white">
-    <p>Icon</p>
+<div>
+  <div class="text-end">
   </div>
-  <div class="value">
-    <h4 [ngClass]="colorValue(this.name)">{{name === 'Compras' ? valor : (valor | real) }}</h4>
-  </div>
-  <div class="bg">
-    <small>{{name}}</small>
+  <div class="text-center">
+    <div class="d-flex justify-content-center">
+    <h4 [ngClass]="colorValue(this.name)">{{name === 'Compras' ? valor : (valor | real) }}</h4> <span [ngClass]="colorValue(this.name)" class="material-symbols-outlined text-end">{{ icon }}</span>
+    </div>
+      <div class="bg">
+      <small>{{name}}</small>
+    </div>
   </div>
 </div>

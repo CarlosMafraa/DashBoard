@@ -1,6 +1,8 @@
 import {Component, Input, OnChanges} from '@angular/core';
 import Highcharts from 'highcharts';
+import Highcharts3D from 'highcharts/highcharts-3d';
 
+Highcharts3D(Highcharts);
 @Component({
   selector: 'app-first-vertical-bar',
   templateUrl: './first-vertical-bar.component.html',
@@ -9,11 +11,14 @@ import Highcharts from 'highcharts';
 
 export class FirstVerticalBarComponent implements OnChanges {
   @Input() dados: any;
-  @Input() title: string = "Lucros entre Contratos";
+  @Input() title: string = "Lucro por Contratos";
   @Input() font!: string;
 
   Highcharts: typeof Highcharts = Highcharts;
   chartData: any;
+  cores: any = {
+    padrao: ['#67A700', '#00643A', '#5200D8', '#0080F6', '#1DADADFF']
+  };
 
   ngOnChanges() {
     this.configGraphics();
@@ -26,10 +31,17 @@ export class FirstVerticalBarComponent implements OnChanges {
       },
       chart: {
         type: 'column',
+        options3d: {
+          enabled: true,
+          alpha: 30,
+          beta: 0,
+          depth: 5,
+          viewDistance: 150
+        },
         backgroundColor: 'transparent',
         style: {
           fontFamily: this.font
-        }
+        },
       },
       title: {
         text: this.title,
@@ -46,6 +58,8 @@ export class FirstVerticalBarComponent implements OnChanges {
       },
       xAxis: {
         type: 'category',
+        gridLineWidth: 0,
+
         labels: {
           style: {
             color: 'white',
@@ -54,7 +68,7 @@ export class FirstVerticalBarComponent implements OnChanges {
         },
       },
       yAxis: {
-        title:{
+        title: {
           enabled: false,
         },
         labels: {
@@ -73,7 +87,21 @@ export class FirstVerticalBarComponent implements OnChanges {
           borderWidth: 0,
           dataLabels: {
             enabled: true,
-            format: '{point.y:.0f}',
+            format: null,
+            formatter: function (): string {
+              const point = (this as any).point;
+              if (point && typeof point.y !== 'undefined') {
+                const num = point.y;
+                if (num >= 1000000) {
+                  return (num / 1000000).toFixed(0) + ' KK';
+                } else if (num >= 1000) {
+                  return (num / 1000).toFixed(0) + ' K';
+                } else {
+                  return num.toString();
+                }
+              }
+              return '';
+            },
             style: {
               textOutline: 'transparent',
               color: 'white'
@@ -83,10 +111,11 @@ export class FirstVerticalBarComponent implements OnChanges {
         }
       },
       tooltip: {
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b>'
+        enabled: true
       },
       series: [{
         colorByPoint: true,
+        colors: this.cores['padrao'],
         data: this.dados
       }],
       drilldown: {
@@ -96,6 +125,16 @@ export class FirstVerticalBarComponent implements OnChanges {
           }
         }
       }
+    }
+  }
+
+  formatNumber(num: number): string {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(2) + ' Milhões';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(2) + ' Mil';
+    } else {
+      return num.toString();
     }
   }
 }

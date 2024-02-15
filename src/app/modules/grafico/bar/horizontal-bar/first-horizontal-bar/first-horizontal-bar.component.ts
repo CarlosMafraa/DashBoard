@@ -12,6 +12,7 @@ export class FirstHorizontalBarComponent implements OnChanges {
   @Input() categoria: any;
   @Input() font!: string;
   @Input() title!: string;
+  @Input() valor!: string;
 
   Highcharts: typeof Highcharts = Highcharts;
   chartData: any;
@@ -37,7 +38,7 @@ export class FirstHorizontalBarComponent implements OnChanges {
         }
       },
       title: {
-        text: this.title,
+        text: this.title + this.valor,
         align: 'left',
         style: {
           color: 'white',

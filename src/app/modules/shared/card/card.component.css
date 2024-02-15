@@ -18,3 +18,8 @@
 .despesas {
   color: #E8C9A5;
 }
+
+span{
+  font-size: 20px;
+  padding-left: 10px;
+}

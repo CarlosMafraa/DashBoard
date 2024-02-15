@@ -7,12 +7,20 @@ button{
 }
 
 
-.dropdown-item{
+.dropdown-item:hover{
   color:  #14354DFF;
+}
+
+.dropdown-item{
+  color: #ffffff;
 }
 
 .dropdown-toggle {
   border-color: white;
+}
+
+.dropdown-menu{
+  background: linear-gradient(90deg, #070331 0%, #14354D 52.78%, #19144D 100%);
 }
 
 
