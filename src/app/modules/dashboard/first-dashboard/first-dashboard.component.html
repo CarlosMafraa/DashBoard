@@ -1,15 +1,15 @@
 <div class="container-fluid">
   <div class="row align-content-around py-3">
     <div class="col-5 text-start text-white">
-      <h3>Bem Vindo</h3>
+      <h4 class="mx-2">Bem vindo!</h4>
     </div>
     <div class="col-7 text-start text-white">
-      <h3>DashBoard Finannceiro</h3></div>
+      <h4>DashBoard Financeiro</h4></div>
   </div>
 
-  <div class="row justify-content-center p-2">
-    <div class="col">
-      <div class="dropdown">
+  <div class="row justify-content-center py-1">
+    <div class="col-3 col-md-3 col-lg-1">
+      <div class="dropdown text-center">
         <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{selectedYear}}
         </button>
@@ -20,8 +20,8 @@
         </ul>
       </div>
     </div>
-    <div class="col">
-      <div class="dropdown">
+    <div class="col-3 col-md-3 col-lg-1 mx-3">
+      <div class="dropdown  text-center">
         <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{selectedMonth}}
         </button>
@@ -32,8 +32,8 @@
         </ul>
       </div>
     </div>
-    <div class="col">
-      <div class="dropdown">
+    <div class="col-3 col-md-3 col-lg-1">
+      <div class="dropdown  text-center">
         <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{selectedCompany}}
         </button>
@@ -59,7 +59,7 @@
 
   <div class="row align-items-center">
     <div class="col-12 col-md-6 col-lg-4" >
-      <app-first-horizontal-bar [valor]="seventhValor" [dados]="dadosBarHOne"  [selected] = "selectedMonth" [categoria]="categoriaFirstBarH" [font] ="fonte" [title]="titleFirstBarH"></app-first-horizontal-bar>
+      <app-first-horizontal-bar [valor]="bolleanValorBar1H" [dados]="dadosBarHOne"  [selected] = "selectedMonth" [categoria]="categoriaFirstBarH" [font] ="fonte" [title]="titleFirstBarH"></app-first-horizontal-bar>
     </div>
     <div class="col-12 col-md-6 col-lg-8" >
       <div class="row justify-content-around align-items-center">
@@ -83,14 +83,29 @@
   </div>
 
   <div class="row align-items-center">
-    <div class="col-12 col-md-6 col-lg-4" >
+    <div class="col-12 col-md-12 col-lg-4" >
       <app-first-doughnut [dados]="dadosDoughnutOne" [font] ="fonte" [title]="titleFirstDoughnut" [align]="alignR" [corrigir]="corrigirR"></app-first-doughnut>
     </div>
-    <div class="col-6 col-md-6 col-lg-4" >
-      <app-first-horizontal-bar [valor]="sixthValor" [dados]="dadosBarHTwo" [selected] = "selectedMonth" [categoria]="categoriaSecondBarH" [font] ="fonte" [title]="titleSecondBarH"></app-first-horizontal-bar>
+    <div class="col-12 col-md-12 col-lg-4" >
+      <app-first-horizontal-bar [valor]="bolleanValorBar2H" [dados]="dadosBarHTwo" [selected] = "selectedMonth" [categoria]="categoriaSecondBarH" [font] ="fonte" [title]="titleSecondBarH"></app-first-horizontal-bar>
     </div>
-    <div class="col-12 col-md-6 col-lg-4" >
+    <div class="col-12 col-md-12 col-lg-4" >
       <app-first-doughnut [dados]="dadosDoughnutTwo" [font] ="fonte" [title]="titleSecondDoughnut" [align]="alignL" [corrigir]="corrigirL"></app-first-doughnut>
+    </div>
+  </div>
+
+  <div class="row justify-content-around m-0 p-0">
+    <div class="col">
+      <span>Powered by Projex Consulting 2024 </span> <span class="copy material-symbols-outlined">copyright</span>
+    </div>
+    <div class="col">
+      <div class="text-end">
+        <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.5264 4.83542L30.8375 3.765C30.8555 3.70328 30.8342 3.63733 30.7826 3.599C28.2221 1.69734 23.9802 0 19.488 0C8.34857 0 0 9.09227 0 19.504C0 29.9157 8.63645 39 19.488 39C28.9401 39 38.8001 31.739 38.992 19.512C38.992 14.4927 37.2221 10.666 34.8667 7.52846C34.7906 7.42696 34.632 7.45685 34.5966 7.57875L34.2398 8.80902C34.2261 8.85638 34.235 8.90643 34.2648 8.94577C35.7683 10.9359 37.6326 14.9929 37.6326 19.512C37.6326 28.8122 30.0357 37.6406 19.488 37.6406C8.73241 37.4726 1.35147 28.8762 1.35145 19.504C1.4634 9.35616 9.76399 1.35944 19.488 1.35944C24.001 1.46183 26.4583 2.39424 30.2904 4.92068C30.3777 4.97823 30.4972 4.93583 30.5264 4.83542Z" fill="#A5BCE8"/>
+          <path d="M31.9869 4.26067L32.2514 3.32102C32.2879 3.1914 32.4609 3.16683 32.5321 3.28118L33.9013 5.48289C33.9246 5.52039 33.9309 5.56553 33.9185 5.6079C33.6564 6.50069 33.1044 8.41483 32.8424 9.44423C32.5065 10.5958 32.3946 10.5558 31.8028 10.8037L19.2081 15.1927C19.1626 15.2086 19.1271 15.2447 19.112 15.2904L14.8969 28.0308C14.8922 28.0452 14.8895 28.0603 14.8892 28.0756L14.8124 31.1296C14.8108 31.1933 14.8484 31.2516 14.9072 31.2763L17.9002 32.5353C17.9522 32.5572 18.0111 32.5497 18.0554 32.5149C22.7932 28.7949 30.6695 24.5105 36.1422 26.4936C36.1702 26.5037 36.1945 26.5219 36.2124 26.5457L36.8006 27.3285C36.8771 27.4303 36.8048 27.5759 36.6774 27.5764L35.7154 27.5807C35.698 27.5808 35.6809 27.5779 35.6644 27.5724C29.3226 25.4246 19.6624 32.6758 18.6402 33.5463C18.1764 33.8662 17.9845 33.8422 17.7286 33.7543C16.577 33.2718 14.1988 32.2749 13.8981 32.1469C13.5975 32.019 13.4972 31.7871 13.4263 31.6431C13.2531 31.2913 12.8266 30.4164 12.5067 29.7319C12.1704 29.0122 12.0669 28.9562 12.2588 28.2205L16.1347 16.507C16.175 16.3852 16.0593 16.2696 15.938 16.3116C13.2577 17.2391 8.24467 18.9734 7.49277 19.2322C6.71229 19.5009 6.32525 19.2562 6.05336 19.0403C5.40028 18.4405 4.03336 17.1883 3.79026 16.9771C3.54716 16.766 3.52634 16.5693 3.52637 16.4254V14.4691C3.52637 14.3836 3.59573 14.3142 3.68128 14.3142H4.55497C4.64052 14.3142 4.70988 14.3836 4.70988 14.4691V15.7834C4.70988 15.8433 4.74449 15.8979 4.79873 15.9235L6.75586 16.8462C6.7925 16.8635 6.83445 16.8657 6.87272 16.8525L30.6469 8.60151C30.6855 8.5881 30.7173 8.55998 30.7353 8.52326L32.3528 5.21883C32.3741 5.17545 32.3738 5.12464 32.3522 5.08144L31.9975 4.37191C31.9802 4.33744 31.9765 4.29777 31.9869 4.26067Z" fill="#A5BCE8"/>
+        </svg>
+        <span> Taurus One</span>
+      </div>
     </div>
   </div>
 </div>

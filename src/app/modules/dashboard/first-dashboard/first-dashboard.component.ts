@@ -38,17 +38,17 @@ export class FirstDashboardComponent {
   };
 
   dadosLine: any = {
-    "SEDUC": {
+    "SEDUC" : {
       0: [50, 25, 12, 48, 56, 76, 42, 35, 60, 70, 80, 90],
       1: [21, 84, 24, 75, 37, 65, 34, 45, 55, 65, 75, 85],
       2: [30, 45, 32, 28, 56, 46, 42, 52, 62, 72, 82, 92]
     },
-    "Projex Consulting": {
+    "Projex Consulting" : {
       0: [30, 45, 32, 28, 56, 46, 42, 52, 62, 72, 82, 92],
       1: [11, 64, 24, 35, 27, 45, 34, 44, 54, 64, 74, 84],
       2: [50, 25, 12, 48, 56, 76, 42, 35, 60, 70, 80, 90]
     },
-    "Comentais": {
+    "Cometais" : {
       0: [40, 35, 22, 38, 46, 66, 32, 25, 50, 60, 70, 80],
       1: [31, 74, 14, 65, 27, 55, 24, 35, 45, 55, 65, 75],
       2: [11, 64, 24, 35, 27, 45, 34, 44, 54, 64, 74, 84]}
@@ -78,8 +78,8 @@ export class FirstDashboardComponent {
   thirdValor: number = 47247.97;
   fourthValor: number = 11145.00;
   fifthValor: number = 21324.45;
-  sixthValor: string = " - 285";
-  seventhValor: string = "";
+  bolleanValorBar1H: boolean = false;
+  bolleanValorBar2H: boolean = true;
   firstIcon: string = 'paid';
   secondIcon: string = 'savings';
   thirdIcon: string = 'trending_up';
@@ -108,8 +108,7 @@ export class FirstDashboardComponent {
 
   onCompanyChange(value: any) {
     this.selectedCompany = value;
-    console.log(value)
-  }
+    this.dadosLine = JSON.parse(JSON.stringify(this.dadosLine));  }
 
   onMonthChange(value: any) {
     this.selectedMonth = value;

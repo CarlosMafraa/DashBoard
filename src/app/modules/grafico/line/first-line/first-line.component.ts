@@ -8,7 +8,7 @@ import Highcharts from 'highcharts';
 })
 export class FirstLineComponent implements OnChanges {
   @Input() dados: any;
-  @Input() selected: any;
+  @Input() selected!: string;
   @Input() categoria: any;
   @Input() font!: string;
   title: string = 'Empenho';
@@ -17,8 +17,6 @@ export class FirstLineComponent implements OnChanges {
   Highcharts: typeof Highcharts = Highcharts;
 
   ngOnChanges() {
-    console.log(this.selected)
-    console.log(this.dados[this.selected][0])
     this.configGraphics()
   }
 

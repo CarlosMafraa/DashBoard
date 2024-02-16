@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import Highcharts from 'highcharts';
 
 @Component({
@@ -12,16 +12,26 @@ export class FirstHorizontalBarComponent implements OnChanges {
   @Input() categoria: any;
   @Input() font!: string;
   @Input() title!: string;
-  @Input() valor!: string;
+  @Input() valor!: boolean;
+
+  soma!: any ;
+  value: string = "";
+
 
   Highcharts: typeof Highcharts = Highcharts;
   chartData: any;
 
   constructor() {
-    this.valueAndColor();
+
   }
 
+
+
   ngOnChanges() {
+    this.valueAndColor();
+    if(this.valor){
+      this.value = " - " + this.soma.toString();
+    }
     this.configGraphics();
   }
 
@@ -38,7 +48,7 @@ export class FirstHorizontalBarComponent implements OnChanges {
         }
       },
       title: {
-        text: this.title + this.valor,
+        text: this.title + this.value,
         align: 'left',
         style: {
           color: 'white',
@@ -63,6 +73,9 @@ export class FirstHorizontalBarComponent implements OnChanges {
           enabled: false,
         }
       },
+      tooltip: {
+        shared: true,
+      },
       legend: {
         enabled: false
       },
@@ -79,6 +92,7 @@ export class FirstHorizontalBarComponent implements OnChanges {
   }
 
   valueAndColor() {
+    this.soma = 0;
     let cor: any = {
       0: [[0, '#361AE4'], [0.7257, '#6901D0']],
       1: [[0.3819, '#11D100'], [1, 'rgba(48, 94, 255, 0.98)']],
@@ -88,8 +102,10 @@ export class FirstHorizontalBarComponent implements OnChanges {
     }
 
     let datas : any = [];
+
     if(this.categoria){
       for(let i = 0; i < this.categoria.length; i++){
+        this.soma += this.dados[this.selected].data[i]
         datas.push({
           y: this.dados[this.selected].data[i],
           color: {

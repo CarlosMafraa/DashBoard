@@ -19,6 +19,10 @@ button{
   border-color: white;
 }
 
+/*.dropdown-toggle:hover{*/
+/*  border-color: white;*/
+/*}*/
+
 .dropdown-menu{
   background: linear-gradient(90deg, #070331 0%, #14354D 52.78%, #19144D 100%);
 }
